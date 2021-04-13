@@ -13,15 +13,38 @@ include('componentes/componentes.php');
         <div class="container">
             <div class="row">
                 <div class="col">
+                    
                     <div class="py-5 text-center">
+                        <?php
+                            session_start();
+                            if(isset($_SESSION['crearUsuario'])){
+                                if($_SESSION['crearUsuario']==1){
+                                      echo'  <div class="alert alert-success alert-dismissible fade show" role="alert">
+                                    Datos de usuario ingresados correctamente
+                                    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                                  </div>';
+                                }else{
+                                      echo '  <div class="alert alert-danger alert-dismissible fade show" role="alert">
+                                        Error al ingresar los datos
+                                        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                                      </div>';
+                                }
+                            }
+                              
+                           
+                              
+                            
+                        ?>
+                      
+                        
                         <div class="card col-md-12">
                             <div class="card-header bg-primary">
                                 <h5 style="text-align: left">Ingreso de datos personales</h5>
                             </div>
 
-                            <div class="card-body shadow">
+                            <div class=" tab card-body shadow">
 
-                                <form>
+                                <form action="controller/controller.php" method="POST" enctype="multipart/form-data">
                                     <div class="row">
                                         <div class="col-12 col-sm-6 col-md-6">
 
