@@ -157,7 +157,7 @@ include('componentes/componentes.php');
                                     <div class="row">
                                             <div class="col-12 col-sm-2 col-md-12">
                                                 <h6 style="text-align:left; color: gray"  class="form-label" >Información</h6>
-                                                <textarea class="form-control" id="txt_informacion_empleao" name="txt_informacion_empleao" rows="3" cols="10" ></textarea>
+                                                <textarea class="form-control" id="txt_informacion_empleado" name="txt_informacion_empleado" rows="3" cols="10" ></textarea>
                                             </div>
                                         </div>
 
