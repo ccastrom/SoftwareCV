@@ -64,4 +64,10 @@ if(isset($_POST['btn_enviar_perfil_usuario'])){
     
     
 }
-
+if(isset($_POST['btn_enviar_antecedentes'])){
+    $id=$_POST['txt_user_id'];
+    $txt_informacion=$_POST['txt_informacion'];
+    
+    
+    die();
+}
