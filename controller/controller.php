@@ -18,12 +18,49 @@ if(isset($_POST['btn_enviar_perfil_usuario'])){
             . "'$txt_correo',"
             . "' $txt_direccion',"
             . "'$txt_pais')";
-    if($ConexionBD->query($sql)===TRUE){
-        $_SESSION['crearUsuario']=1;
-        header("Location: ../index.php");
-    }else{
-        echo "error";
+    
+  
+    foreach($_FILES['archivo']['tmp_name'] as $key => $tmp_value){
+        $filename = $_FILES['archivo']['name'][$key];
+        $archivo_nombre = uniqid('', true).$_FILES['archivo']['name'][$key];
+        $fuente = $_FILES['archivo']['tmp_name'][$key];
+
+        $carpeta = '../documentos/imagenes/';
+        $target_path = $carpeta.$archivo_nombre;
+        if(move_uploaded_file($fuente, $target_path)){
+            $ConexionBD->query($sql);
+            
+            $id_usuario = $ConexionBD->insert_id;
+            $sql_archivos="INSERT INTO documentos VALUES(NULL,'$filename','$archivo_nombre',$id_usuario)";
+            $ConexionBD->query($sql_archivos);
+            if($ConexionBD->affected_rows>=1){
+               
+                $_SESSION['crearUsuario']=1;
+                $_SESSION['idUser']=$id_usuario;
+               
+                header("Location: ../index.php");
+            }else{
+                $_SESSION['crearUsuario']=2;
+                
+                header("Location: ../index.php");
+            }
+        }else{
+            $ConexionBD->query($sql);
+           
+            if($ConexionBD->affected_rows>=1){
+                $id_usuario = $ConexionBD->insert_id;
+                $_SESSION['crearUsuario']=1;
+                $_SESSION['idUser']=$id_usuario;
+                header("Location: ../index.php");
+            }else{
+               
+                $_SESSION['crearUsuario']=2;
+               
+                header("Location: ../index.php");
+            }
+        }
     }
+   
     
     
 }

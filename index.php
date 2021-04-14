@@ -22,19 +22,36 @@ include('componentes/componentes.php');
                                       echo'  <div class="alert alert-success alert-dismissible fade show" role="alert">
                                     Datos de usuario ingresados correctamente
                                     <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-                                  </div>';
-                                }else{
+                                  </div>';?>
+                                <?php
+                                    if(isset($_SESSION['idUser'])){
+                                        $usuarioID=$_SESSION['idUser'];
+                                        echo $usuarioID;
+                                        
+                                    }
+                                ?>
+                                  
+                            <div class="row">
+                                <div class="col-12 col-sm-6 col-md-12">
+                                    <a class="btn btn-primary" href="antecedentes.php?idUser=<?php echo $usuarioID ?>">Añadir nuevos antecedentes </a>
+                                </div>
+                            </div>
+                                  
+                                <?php }else{
                                       echo '  <div class="alert alert-danger alert-dismissible fade show" role="alert">
                                         Error al ingresar los datos
                                         <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
                                       </div>';
                                 }
+                                unset($_SESSION['idUser']);
+                               
                             }
-                              
+                            unset($_SESSION['crearUsuario'])?>
+                      
+                        <br>
                            
-                              
-                            
-                        ?>
+                                
+                       
                       
                         
                         <div class="card col-md-12">
@@ -54,7 +71,7 @@ include('componentes/componentes.php');
                                         <div class="col-12 col-sm-6 col-md-6">
 
                                             <h6 style="text-align:left; color: gray"  class="form-label" >Foto </h6>
-                                            <input type="file" class="form-control" id="archivo" name="archivo">
+                                            <input type="file" class="form-control" id="archivo[]" name="archivo[]">
                                         </div>
 
 
