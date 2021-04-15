@@ -113,7 +113,8 @@ if(isset($_POST['btn_enviar_antecedentes'])){
             $sql_antecedentes="INSERT INTO antecedentes VALUES(NULL,'$txt_informacion',$id_user,'$id_antecedentes_academicos','$id_antecedentes_laborales');";
             $statement_curriculum_final=$ConexionBD->query($sql_antecedentes);
             if($ConexionBD->affected_rows>=1){
-                header("Location: ../antecedentes.php?idUser=".$id_user);
+                $_SESSION['idUser']=$id_usuario;
+                header("Location: ../curriculum.php?idUser=".$id_user);
             }else{
                 echo"error";
             }
