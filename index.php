@@ -26,7 +26,7 @@ include('componentes/componentes.php');
                                 <?php
                                     if(isset($_SESSION['idUser'])){
                                         $usuarioID=$_SESSION['idUser'];
-                                        echo $usuarioID;
+                                       
                                         
                                     }
                                 ?>

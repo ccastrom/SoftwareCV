@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <?php
 
-function getPlantilla($datosCV, $datos_usuario) {
+function getPlantilla($datosCV, $datos_usuario,$foto_usuario) {
 
     $plantilla = '<html>
 <head>
@@ -22,10 +22,12 @@ function getPlantilla($datosCV, $datos_usuario) {
 </head>
 <body id="top">
 <section id="cv" class="instaFade">
-	<div class="mainDetails">
-		<div id="headshot" class="quickFade">
-			<img src="documentos/imagenes/607503fcb6c843.50396563pepe.jpg" />
-		</div>
+	<div class="mainDetails">';
+    foreach ($foto_usuario as $foto) {
+        $foto["ruta"];
+    }
+			$plantilla.='<img src="documentos/imagenes/'.$foto["ruta"].'" width="100" height="100">
+		
 		
 		<div id="name">';
     foreach ($datos_usuario as $d) {

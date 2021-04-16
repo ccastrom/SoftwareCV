@@ -25,10 +25,18 @@ WHERE antecedentes.id_fk_usuario='$idUser';");
    $resultado=$sql_usuario->get_result();
    while($row=$resultado->fetch_assoc())$datos_usuario[]=$row;
    $mysqli->close();
-  
+   
+    //get_foto
+    $foto_usuario = array();
+    $mysqli= new mysqli("localhost","root","","curriculum");
+   $sql_foto=$mysqli->prepare("SELECT * FROM documentos WHERE documentos.id_fk_usuario='$idUser'");
+   $sql_foto->execute();
+   $resultado=$sql_foto->get_result();
+   while($row=$resultado->fetch_assoc())$foto_usuario[]=$row;
+   $mysqli->close();
   
    
-  
+       
   
   
 }else{
@@ -39,7 +47,7 @@ $mpdf= new \Mpdf\Mpdf([
     
 ]);
 
-$plantilla= getPlantilla($datosCV,$datos_usuario);
+$plantilla= getPlantilla($datosCV,$datos_usuario,$foto_usuario);
 $css= file_get_contents('style.css');
 $mpdf->WriteHTML($css, \Mpdf\HTMLParserMode::HEADER_CSS);
 $mpdf->WriteHTML($plantilla, \Mpdf\HTMLParserMode::HTML_BODY);
