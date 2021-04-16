@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 16-04-2021 a las 02:48:04
+-- Tiempo de generación: 16-04-2021 a las 05:33:37
 -- Versión del servidor: 10.4.18-MariaDB
 -- Versión de PHP: 7.4.16
 
@@ -35,18 +35,6 @@ CREATE TABLE `antecedentes` (
   `id_fk_antecedentes_laborales` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
---
--- Volcado de datos para la tabla `antecedentes`
---
-
-INSERT INTO `antecedentes` (`id`, `descripcion_general`, `id_fk_usuario`, `id_fk_antecedentes_academicos`, `id_fk_antecedentes_laborales`) VALUES
-(1, 'Estudiante de Ingenieria en Informatica en Instituto Profesional Santo Tomas en busca de experiencia profesional en desarrollo de aplicaciones web.', 1, 1, 1),
-(3, 'vasfasfafa', 2, 2, 3),
-(4, 'FASFASFASF', 3, 3, 4),
-(5, 'FASFASFASF', 3, 4, 5),
-(6, 'jjjfsjsfshs', 4, 5, 6),
-(7, 'jjjfsjsfshs', 4, 6, 7);
-
 -- --------------------------------------------------------
 
 --
@@ -61,18 +49,6 @@ CREATE TABLE `antecedentes_academicos` (
   `fecha_termino_academico` varchar(10) DEFAULT NULL,
   `descripcion_academica` longtext DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
-
---
--- Volcado de datos para la tabla `antecedentes_academicos`
---
-
-INSERT INTO `antecedentes_academicos` (`id`, `universidad`, `ciudad`, `fecha_inicio_academico`, `fecha_termino_academico`, `descripcion_academica`) VALUES
-(1, 'IP SANTO TOMAS', 'Rancagua', '2017-03-11', '2022-04-22', 'Estudios realizados de desarrollo de software, programación JAVA, desarrollo web, cursos de base de datos.'),
-(2, '', '', '', '', ''),
-(3, 'FASFASF', 'ASFASF', '0412-12-04', '1111-01-04', 'AFASFASFA'),
-(4, 'FASFASF', 'ASFASF', '0412-12-04', '1111-01-04', 'AFASFASFA'),
-(5, 'fasfa', 'gasgasgas', '1111-02-04', '1111-02-05', 'GSAGASGASG'),
-(6, 'gdgddgdg', 'gnjtehj3', '1111-02-04', '1111-02-05', 'SSSSSSS');
 
 -- --------------------------------------------------------
 
@@ -90,19 +66,6 @@ CREATE TABLE `antecedentes_laborales` (
   `descripcion_profesional` longtext DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
---
--- Volcado de datos para la tabla `antecedentes_laborales`
---
-
-INSERT INTO `antecedentes_laborales` (`id`, `nombre_de_trabajo`, `empleador`, `ciudad`, `fecha_inicio_laboral`, `fecha_termino_laboral`, `descripcion_profesional`) VALUES
-(1, 'Programador', 'Consultar Psicologia', 'Rancagua', '2019-12-20', '2020-01-10', 'Se desarrolla software de escritoria que soluciona la problematica de almacenar datos en una planilla Excel, haciendo un proceso lento y tedioso para gestionar a los pacientes de aquella consulta.'),
-(2, 'Programador Junior', 'HHS', 'Santiago', '14-04-2021', 'Presente', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed nec urna quis lorem luctus porta. Quisque eu ligula quis libero aliquet luctus. Morbi elementum auctor venenatis. Aliquam blandit eget mi et tempor. Fusce efficitur nisi lobortis mi sagittis, ac imperdiet nisl placerat. Integer metus lacus, sodales ac pellentesque et, dignissim nec quam. Aenean at dignissim ex.'),
-(3, '', '', '', '', '', ''),
-(4, 'Programador Junior', 'FASFASF', 'Rancagua', '1111-04-21', '14111-02-04', 'FASFAS'),
-(5, 'Programador Junior', 'FASFASF', 'Rancagua', '1111-04-21', '14111-02-04', 'FASFAS'),
-(6, 'hfdhfs', 'Empresa X', 'ljhlhhljhljhlj', '4111-12-05', '0411-11-24', 'GGGGGGGGG'),
-(7, 'hfdhfs', 'Empresa X', 'ljhlhhljhljhlj', '4111-12-05', '0411-11-24', 'GGGGGGGGG');
-
 -- --------------------------------------------------------
 
 --
@@ -115,15 +78,6 @@ CREATE TABLE `documentos` (
   `ruta` text NOT NULL,
   `id_fk_usuario` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
-
---
--- Volcado de datos para la tabla `documentos`
---
-
-INSERT INTO `documentos` (`id`, `nombre`, `ruta`, `id_fk_usuario`) VALUES
-(1, 'hollow.jpg', '60779629ebb765.43340903hollow.jpg', 1),
-(2, 'pepe.jpg', '6078daea2a4646.87954105pepe.jpg', 3),
-(3, 'pepe.jpg', '6078dc476100e1.94472896pepe.jpg', 4);
 
 -- --------------------------------------------------------
 
@@ -141,16 +95,6 @@ CREATE TABLE `usuario` (
   `direccion` varchar(100) DEFAULT NULL,
   `pais` varchar(40) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
-
---
--- Volcado de datos para la tabla `usuario`
---
-
-INSERT INTO `usuario` (`id`, `nombre`, `apellido_paterno`, `apellido_materno`, `num_celular`, `correo`, `direccion`, `pais`) VALUES
-(1, 'Claudio Francisco', 'Castro', 'Muñoz', ' 967859747', 'claudio_jr@live.cl', ' Augusto Figueroa', 'Chile'),
-(2, 'fasfas', 'fasfasf', 'fasfasf', ' asfasfa', 'asfasf', ' Augusto Figueroa', 'Chile'),
-(3, 'Cristobal', 'Sepúlveda', 'Yañez', ' 5125125', 'asdasddsa', ' afsfas', 'Chile'),
-(4, 'YYYYYYY', 'FFFFFFFFF', 'HHHHHHHH', ' 967859747', 'asfasfas', ' hfhdf', 'Chile');
 
 --
 -- Índices para tablas volcadas
@@ -198,31 +142,31 @@ ALTER TABLE `usuario`
 -- AUTO_INCREMENT de la tabla `antecedentes`
 --
 ALTER TABLE `antecedentes`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT de la tabla `antecedentes_academicos`
 --
 ALTER TABLE `antecedentes_academicos`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT de la tabla `antecedentes_laborales`
 --
 ALTER TABLE `antecedentes_laborales`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT de la tabla `documentos`
 --
 ALTER TABLE `documentos`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT de la tabla `usuario`
 --
 ALTER TABLE `usuario`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- Restricciones para tablas volcadas
